@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>jdk下载及环境变量配置</title>
+      <link href="2020/09/24/jdk%E4%B8%8B%E8%BD%BD%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/"/>
+      <url>2020/09/24/jdk%E4%B8%8B%E8%BD%BD%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p><strong>一、jdk的下载</strong><br>1、jdk下载地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a><br><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">点击打开链接</a>  我们根据自己的需要选择相应版本的jdk进行下载。</p><p>下载好以后我们找到安装包进行安装，安装路径课根据自己的喜好进行调整，注意，安装的时候会依次出现两次安装，第一次是jdk的安装，第二次是jre的安装，建议两个不要放在同一个目录下。（安装很简单，就不截图啦！）</p><p><strong>二、在安装好以后，接下来就该配置环境变量了。</strong></p><p>1、右键点击计算机→属性→高级系统设置→高级→环境变量</p><p><img src="https://img-blog.csdnimg.cn/20200919155814839.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6cDEyMzIx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">注：一般java_home、classpath、path都配置在系统变量中。</p><p>2、配置JAVA_HOME变量</p><p>系统变量→新建 JAVA_HOME 变量 。变量值填写jdk的安装目录（我是配置到用户变量中的，建议配置到系统变量中）</p><p><img src="https://img-blog.csdnimg.cn/2020091915584747.png#pic_center" alt="在这里插入图片描述"><br>3、配置path变量</p><p>系统变量→寻找 Path 变量→编辑</p><p>在变量值最后输入 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;  注意原来Path的变量值末尾有没有;号，如果没有，先输入；号再输入上面的变量代码。（注意：英文字符下的;号）</p><p><img src="https://img-blog.csdnimg.cn/20200919155906499.png#pic_center" alt="在这里插入图片描述"><br>4、配置CLASSPATH 变量</p><p>系统变量→新建 CLASSPATH 变量</p><p>变量值填写   .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar（注意最前面有一个点）</p><p><img src="https://img-blog.csdnimg.cn/20200919155945413.png#pic_center" alt="在这里插入图片描述"><br>5、jdk的环境变量配置完毕，接下来我们使用cmd命令窗口来检查是否成功。</p><p><img src="https://img-blog.csdnimg.cn/20200919160008399.png#pic_center" alt="在这里插入图片描述"><br>如上图所示，输入 java -version （java 和 -version 之间有空格），当窗口中出现自己安装的jdk版本号则表示安装成功。当然，也可以通过输入Java 或者 javac 来进行检查。</p><p>5.1、命令窗口输入java  附图：</p><p><img src="https://img-blog.csdnimg.cn/20200919160041990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6cDEyMzIx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>5.2、命令窗口输入javac  附图：</p><p><img src="https://img-blog.csdnimg.cn/20200919160055754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6cDEyMzIx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>自此jdk的安装及检验就全部完成。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> jdk </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="2020/09/23/hello-world/"/>
+      <url>2020/09/23/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
