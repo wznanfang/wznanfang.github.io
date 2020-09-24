@@ -31,6 +31,33 @@
     
     
     <entry>
+      <title>java 文件上传</title>
+      <link href="2020/09/24/java%20%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+      <url>2020/09/24/java%20%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>文件上传在现在的功能需求是很常见的，基本上所有的项目都会涉及到文件的上传，提供例子，希望有所帮助</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">File</span><span class="params">(<span class="meta">@RequestParam(&quot;fileName&quot;)</span> MultipartFile file, HttpServletRequest request, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">        Files files = <span class="keyword">new</span> Files();</span><br><span class="line">        <span class="comment">// 获取原始文件名</span></span><br><span class="line">        String fileName = file.getOriginalFilename();</span><br><span class="line">        <span class="comment">//获取我们自己定义的文件名</span></span><br><span class="line">        String NewFileName = request.getParameter(<span class="string">&quot;NewFileName&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取后缀</span></span><br><span class="line">        String suffixName = fileName.substring(fileName.lastIndexOf(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">        <span class="comment">// 文件保存的路径</span></span><br><span class="line">        String filePath = <span class="string">&quot;F:/upload/&quot;</span>;</span><br><span class="line">        <span class="comment">// 对fileName处理，加上随机码，避免重复</span></span><br><span class="line"><span class="comment">//        String NewFileNames = filePath + UUID.randomUUID() + fileName;</span></span><br><span class="line"><span class="comment">//        String NewFileNames = filePath + UUID.randomUUID() + suffixName;</span></span><br><span class="line">        String NewFileNames = UUID.randomUUID() + <span class="string">&quot;-&quot;</span> + fileName;</span><br><span class="line">        <span class="comment">// 文件存储路径</span></span><br><span class="line">        File dest = <span class="keyword">new</span> File(filePath + NewFileNames);</span><br><span class="line">        <span class="comment">// 判断文件路径是否存在，不存在就创建路径</span></span><br><span class="line">        <span class="keyword">if</span> (!dest.getParentFile().exists()) &#123;</span><br><span class="line">            dest.getParentFile().mkdir();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            file.transferTo(dest);</span><br><span class="line">            response.sendRedirect(<span class="string">&quot;http://127.0.0.1:8080/html/file/files.html&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;上传失败，请返回页面重新上传！&quot;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><blockquote><p> 注：如有需要，可自行转载，但是要加上原创作者及原文章链接哦…</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 文件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java 获取图片相关数据</title>
       <link href="2020/09/24/java%20%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE/"/>
       <url>2020/09/24/java%20%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE/</url>
@@ -119,33 +146,6 @@
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>java 文件上传</title>
-      <link href="2020/09/20/java%20%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-      <url>2020/09/20/java%20%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>文件上传在现在的功能需求是很常见的，基本上所有的项目都会涉及到文件的上传，提供例子，希望有所帮助</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">File</span><span class="params">(<span class="meta">@RequestParam(&quot;fileName&quot;)</span> MultipartFile file, HttpServletRequest request, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">        Files files = <span class="keyword">new</span> Files();</span><br><span class="line">        <span class="comment">// 获取原始文件名</span></span><br><span class="line">        String fileName = file.getOriginalFilename();</span><br><span class="line">        <span class="comment">//获取我们自己定义的文件名</span></span><br><span class="line">        String NewFileName = request.getParameter(<span class="string">&quot;NewFileName&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取后缀</span></span><br><span class="line">        String suffixName = fileName.substring(fileName.lastIndexOf(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">        <span class="comment">// 文件保存的路径</span></span><br><span class="line">        String filePath = <span class="string">&quot;F:/upload/&quot;</span>;</span><br><span class="line">        <span class="comment">// 对fileName处理，加上随机码，避免重复</span></span><br><span class="line"><span class="comment">//        String NewFileNames = filePath + UUID.randomUUID() + fileName;</span></span><br><span class="line"><span class="comment">//        String NewFileNames = filePath + UUID.randomUUID() + suffixName;</span></span><br><span class="line">        String NewFileNames = UUID.randomUUID() + <span class="string">&quot;-&quot;</span> + fileName;</span><br><span class="line">        <span class="comment">// 文件存储路径</span></span><br><span class="line">        File dest = <span class="keyword">new</span> File(filePath + NewFileNames);</span><br><span class="line">        <span class="comment">// 判断文件路径是否存在，不存在就创建路径</span></span><br><span class="line">        <span class="keyword">if</span> (!dest.getParentFile().exists()) &#123;</span><br><span class="line">            dest.getParentFile().mkdir();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            file.transferTo(dest);</span><br><span class="line">            response.sendRedirect(<span class="string">&quot;http://127.0.0.1:8080/html/file/files.html&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;上传失败，请返回页面重新上传！&quot;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><blockquote><p> 注：如有需要，可自行转载，但是要加上原创作者及原文章链接哦…</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> 文件 </tag>
-            
-        </tags>
       
     </entry>
     
