@@ -13,8 +13,6 @@
       
       <categories>
           
-          <category> java </category>
-          
           <category> springboot </category>
           
       </categories>
@@ -56,6 +54,33 @@
             <tag> list </tag>
             
             <tag> random </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于gradle5.0及其以上中 lombok 的使用</title>
+      <link href="2020/11/06/%E5%85%B3%E4%BA%8Egradle5.0%E5%8F%8A%E5%85%B6%E4%BB%A5%E4%B8%8A%E4%B8%AD%20lombok%20%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>2020/11/06/%E5%85%B3%E4%BA%8Egradle5.0%E5%8F%8A%E5%85%B6%E4%BB%A5%E4%B8%8A%E4%B8%AD%20lombok%20%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><blockquote><p>Lombok 是一个可以通过简单的注解形式来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，通过使用对应的注解，可以在编译源码的时候生成对应的方法.</p></blockquote><h3 id="二、gradle5-0以上使用lombok出现的坑"><a href="#二、gradle5-0以上使用lombok出现的坑" class="headerlink" title="二、gradle5.0以上使用lombok出现的坑"></a>二、gradle5.0以上使用lombok出现的坑</h3><blockquote><p>今天在我自己项目中使用lombok插件出现一件怪事，我用maven管理的时候，lombok没有任何问题，但是，当我使用gradle的时候，并将其改为5.0版本的时候，好嘛，问题出来了，lombok的相应注解不起作用了……接下来就解决这个问题</p></blockquote><h3 id="三、idea安装lombok插件"><a href="#三、idea安装lombok插件" class="headerlink" title="三、idea安装lombok插件"></a>三、idea安装lombok插件</h3><blockquote><p>第一步 ，安装lombok插件</p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201107131001252.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6cDEyMzIx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><blockquote><p>第二步，设置这里，把√勾上</p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20201107131043630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6cDEyMzIx,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><h3 id="四、引入依赖"><a href="#四、引入依赖" class="headerlink" title="四、引入依赖"></a>四、引入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;org.projectlombok:lombok:1.18.10&#x27;</span><br></pre></td></tr></table></figure><h3 id="五、问题的原因"><a href="#五、问题的原因" class="headerlink" title="五、问题的原因"></a>五、问题的原因</h3><blockquote><p>在以前的版本中，我们只需要引入只引入上面的依赖就可以了，但是这种做法在Gradle 5.0以后被明令禁止了，在4.x的高级版本中编译时也会有对应的告警，所以如果只引入一个则不会有任何作用……导致编译失败，提示找不到对应得get set 等……</p></blockquote><h3 id="六、解决办法"><a href="#六、解决办法" class="headerlink" title="六、解决办法"></a>六、解决办法</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;org.projectlombok:lombok:1.18.10&#x27;</span><br><span class="line">annotationProcessor &#x27;org.projectlombok:lombok:1.18.10&#x27;</span><br></pre></td></tr></table></figure><blockquote><p>如上，引入两个依赖则不会出现文章中提到的的问题</p></blockquote><h3 id="七、结语"><a href="#七、结语" class="headerlink" title="七、结语"></a>七、结语</h3><blockquote><p>建议在5.0以下的版本在项目中也加上上面的两个依赖，避免以后再版本升级时产生这样的问题，当然了，maven项目不知道会不会出现这样的问题，毕竟我没试过……</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> gradle </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> gradle </tag>
+            
+            <tag> lombok </tag>
             
         </tags>
       
