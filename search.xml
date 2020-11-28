@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>OAuth2.0使用redis存储token报错</title>
+      <link href="2020/11/28/OAuth2.0%E4%BD%BF%E7%94%A8redis%E5%AD%98%E5%82%A8token%E6%8A%A5%E9%94%99/"/>
+      <url>2020/11/28/OAuth2.0%E4%BD%BF%E7%94%A8redis%E5%AD%98%E5%82%A8token%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote><p>在spring security oauth2.0中，授权服务使用redis存储token的时候，报错：java.lang.NoSuchMethodError: org.springframework.data.redis.connection.RedisConnection.set([B[B)V</p></blockquote><blockquote><p>我们翻译一下，就不难理解它的意思，这说明版本有问题，当然了，我们也给出了解决方案<br><strong>解决方案</strong>，指定oauh2.0的版本，将oauth2.0的版本升级到2.3.4及其以上，即在pom文件中，加入下面的依赖即可解决问题（我是升到2.3.8版本的，因为2.4.0版本下，有相关配置已过时）。</p></blockquote><h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h3> <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security.oauth<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-oauth2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.8.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>至此，问题就迎刃而解，虽然是个小问题，但是如果我们第一次碰到，依然会抓瞎的……</p></blockquote><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><blockquote><p>本文没得结语，嗯……主要是不晓得说啥子呀</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> OAuth2.0 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java 使用 ip2region 获取地理位置</title>
+      <link href="2020/11/28/java%20%E4%BD%BF%E7%94%A8%20ip2region%20%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE/"/>
+      <url>2020/11/28/java%20%E4%BD%BF%E7%94%A8%20ip2region%20%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote><p>因为最近有个需求需要根据客户端登录的ip地址进行城市定位，获取到用户的登录城市，网上查了一下，也借鉴了一些博客，我自己也使用ip2region自己写了一个</p></blockquote><h3 id="获取到客户端的ip地址"><a href="#获取到客户端的ip地址" class="headerlink" title="获取到客户端的ip地址"></a>获取到客户端的ip地址</h3><blockquote><p>该步骤参考我以前的文章 <a href="https://wzpkuye.gitee.io/2020/11/28/%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%88%B7%E7%AB%AFip%E5%9C%B0%E5%9D%80/">获取客户端ip地址</a></p></blockquote><h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h3> <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.lionsoul<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ip2region<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="需要的文件下载地址"><a href="#需要的文件下载地址" class="headerlink" title="需要的文件下载地址"></a>需要的文件下载地址</h3><blockquote><p>db文件下载地址，<a href="https://gitee.com/lionsoul/ip2region/tree/master/data">https://gitee.com/lionsoul/ip2region/tree/master/data</a> 下载下来后解压，db文件在data目录下</p></blockquote><h3 id="新建-IpUtil-工具类"><a href="#新建-IpUtil-工具类" class="headerlink" title="新建 IpUtil 工具类"></a>新建 IpUtil 工具类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IpUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getCityInfo</span><span class="params">(String ip)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        db文件下载地址，https://gitee.com/lionsoul/ip2region/tree/master/data 下载下来后解压，db文件在data目录下</span></span><br><span class="line">        String dbPath = <span class="string">&quot;G:\\IpData\\ip2region.db&quot;</span>;</span><br><span class="line">        File file = <span class="keyword">new</span> File(dbPath);</span><br><span class="line">        <span class="keyword">if</span> (file.exists() == <span class="keyword">false</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Error: Invalid ip2region.db file&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//查询算法 B-tree</span></span><br><span class="line">        <span class="keyword">int</span> algorithm = DbSearcher.BTREE_ALGORITHM;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            DbConfig config = <span class="keyword">new</span> DbConfig();</span><br><span class="line">            DbSearcher searcher = <span class="keyword">new</span> DbSearcher(config, dbPath);</span><br><span class="line">            Method method = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">switch</span> (algorithm) &#123;</span><br><span class="line">                <span class="keyword">case</span> DbSearcher.BTREE_ALGORITHM:</span><br><span class="line">                    method = searcher.getClass().getMethod(<span class="string">&quot;btreeSearch&quot;</span>, String.class);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> DbSearcher.BINARY_ALGORITHM:</span><br><span class="line">                    method = searcher.getClass().getMethod(<span class="string">&quot;binarySearch&quot;</span>, String.class);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> DbSearcher.MEMORY_ALGORITYM:</span><br><span class="line">                    method = searcher.getClass().getMethod(<span class="string">&quot;memorySearch&quot;</span>, String.class);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (Util.isIpAddress(ip) == <span class="keyword">false</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Error: Invalid ip address&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            DataBlock dataBlock = (DataBlock) method.invoke(searcher, ip);</span><br><span class="line">            <span class="keyword">return</span> dataBlock.getRegion();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String cityIpString = getCityInfo(<span class="string">&quot;218.88.22.78&quot;</span>);</span><br><span class="line">        String[] splitIpString = cityIpString.split(<span class="string">&quot;\\|&quot;</span>);</span><br><span class="line">        String province = splitIpString[<span class="number">2</span>].replaceAll(<span class="string">&quot;\\省&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        String city = splitIpString[<span class="number">3</span>].replaceAll(<span class="string">&quot;\\市&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        System.out.println(province);</span><br><span class="line">        System.out.println(city);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><blockquote><p>正常情况下就能够正确获取到客户端登录用户的城市了，你也可以自己试一试哦，反正不要钱，哈哈哈哈哈……</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> ip2region </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nginx日志切割</title>
       <link href="2020/11/28/nginx%20%E6%97%A5%E5%BF%97%E5%88%87%E5%89%B2%EF%BC%88%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%EF%BC%89/"/>
       <url>2020/11/28/nginx%20%E6%97%A5%E5%BF%97%E5%88%87%E5%89%B2%EF%BC%88%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%EF%BC%89/</url>
