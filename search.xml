@@ -74,7 +74,7 @@
             
             <tag> springboot </tag>
             
-            <tag> 动态定时任务 </tag>
+            <tag> 定时任务 </tag>
             
         </tags>
       
@@ -341,7 +341,7 @@
     
     
     <entry>
-      <title>java 以及 springboot 分别实现定时器</title>
+      <title>java 以及 springboot 分别实现定时任务</title>
       <link href="2020/11/07/java%20%E4%BB%A5%E5%8F%8A%20springboot%20%E5%88%86%E5%88%AB%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E5%99%A8/"/>
       <url>2020/11/07/java%20%E4%BB%A5%E5%8F%8A%20springboot%20%E5%88%86%E5%88%AB%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E5%99%A8/</url>
       
@@ -359,9 +359,7 @@
             
             <tag> java </tag>
             
-            <tag> springboot </tag>
-            
-            <tag> 定时器 </tag>
+            <tag> 定时任务 </tag>
             
         </tags>
       
@@ -417,7 +415,7 @@
             
             <tag> springboot </tag>
             
-            <tag> 文件分片上传 </tag>
+            <tag> 文件上传 </tag>
             
         </tags>
       
@@ -726,7 +724,7 @@
       
       <categories>
           
-          <category> 旅游 </category>
+          <category> 南风落尽 </category>
           
       </categories>
       
@@ -814,7 +812,7 @@
             
             <tag> java </tag>
             
-            <tag> 文件 </tag>
+            <tag> 文件上传 </tag>
             
         </tags>
       
