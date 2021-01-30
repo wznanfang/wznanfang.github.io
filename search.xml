@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决github图床问题</title>
+      <link href="2021/01/30/%E8%A7%A3%E5%86%B3github%E5%9B%BE%E5%BA%8A%E9%97%AE%E9%A2%98/"/>
+      <url>2021/01/30/%E8%A7%A3%E5%86%B3github%E5%9B%BE%E5%BA%8A%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>年关已近，烟花将开</p><p>—— 南风落尽</p><hr><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote><p>天气好像越来越好了？很奇怪，温度竟然升高了许多，前段时间的几度，现在的十几度，虽然还是有些许的冷，但天可怜见，连续出了半个月的太阳，虽然今日太阳不见，但已无伤大雅……</p></blockquote><h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><blockquote><p>上一篇文章在讲md格式的书写时，截取了很多图，我是用的github做的图床(虽然曾今是用的gitee，但是耐不住github它容量没有限制呀)，然后就导致了一个问题，那就是图片上传后竟然不能访问，至于为啥不能访问，原因大家都明白，可是看不了图片的问题总得解决呀，然后就网上搜各种解决办法……</p></blockquote><h3 id="办法"><a href="#办法" class="headerlink" title="办法"></a>办法</h3><h4 id="解决自己看不了图片的方法"><a href="#解决自己看不了图片的方法" class="headerlink" title="解决自己看不了图片的方法"></a>解决自己看不了图片的方法</h4><blockquote><p>如果你的电脑是Windows系统，那么可以打开<code>C:\Windows\System32\drivers\etc</code>文件夹，然后打开hosts文件，在其文末追加以下内容即可</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># GitHub Start </span><br><span class="line">192.30.253.112    Build software better, together </span><br><span class="line">192.30.253.119    gist.github.com</span><br><span class="line">151.101.184.133    assets-cdn.github.com</span><br><span class="line">151.101.184.133    raw.githubusercontent.com</span><br><span class="line">151.101.184.133    gist.githubusercontent.com</span><br><span class="line">151.101.184.133    cloud.githubusercontent.com</span><br><span class="line">151.101.184.133    camo.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars0.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars1.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars2.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars3.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars4.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars5.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars6.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars7.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars8.githubusercontent.com</span><br><span class="line"></span><br><span class="line"> # GitHub End</span><br></pre></td></tr></table></figure><h4 id="解决自己的文章别人看不了图片的方法"><a href="#解决自己的文章别人看不了图片的方法" class="headerlink" title="解决自己的文章别人看不了图片的方法"></a>解决自己的文章别人看不了图片的方法</h4><blockquote><p>我们都知道 <code>jsDelivrCND</code>吧？用处就不说了吧，我们将对应得github路径替换为jsDelivr的路径就好了，各种方法查看 <a href="https://www.jsdelivr.com/">jsDelivr官网</a>，关于github这一块有如下内容：</p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/nanfengluojin/image@main/blog/202101/30/130709-506829.png" alt="image-20210130130707671"></p><blockquote><p>从链接格式来看，我们就知道，不同的只是前面的部分，我们将github上对应的图片路径按照格式替换即可。</p><p>例如下图所示：</p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/nanfengluojin/image@main/blog/202101/30/130943-98624.png" alt="image-20210130130942881"></p><blockquote><p><code>注意</code>：如果你的分支不是master，请根据自己的项目分支进行替换，例如现在新建项目，主分支皆为 main ，不再是以前的master了，至于为什么更改，可以自行百度，作为一个优秀的中国人民，我们不讨论国际政治问题……</p></blockquote><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><blockquote><p>当然了，使用 <code>jsDelivrCND</code>也不是万能的，毕竟谁也不知道免费的cdn什么时候就用不了了，所以如果不想承担此类风险，可以采取其它办法，例如将 阿里云、腾讯云、七牛云等作为图床，也可以购买国内某些公司研发的cdn服务产品，国内也有公司提供免费的cdn服务，但是一如上面所说，也许有一天免费的就不能用了……</p></blockquote><hr><p>提前祝大家新年快乐！写完了这一篇水文，决定奖励自己一壶茶，起炉，烧水，只是可惜了没有湖，没有舟，更没有雪……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> github </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图床 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>md文件的相关使用</title>
       <link href="2021/01/10/md%E6%96%87%E4%BB%B6%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8/"/>
       <url>2021/01/10/md%E6%96%87%E4%BB%B6%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8/</url>
