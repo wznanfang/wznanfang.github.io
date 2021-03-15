@@ -246,7 +246,7 @@ hr:before,
   --white: #fff;
   --text-highlight-color: #1f2d3d;
   --blockquote-color: #6a737d;
-  --blockquote-bg: rgba(73,177,245,0.1);
+  --blockquote-bg: rgba(170,246,193,0.1);
   --reward-pop: #f5f5f5;
   --sidebar-icon-color: #1f2d3d;
 }
@@ -1793,7 +1793,7 @@ figure.highlight pre .javascript .function {
 blockquote {
   margin: 0 0 1rem;
   padding: 0.1rem 0.8rem;
-  border-left: 0.2rem solid #49b1f5;
+  border-left: 0.2rem solid #aaf6c1;
   background-color: var(--blockquote-bg);
   color: var(--blockquote-color);
 }
