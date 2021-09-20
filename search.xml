@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>企业微信 获取会话内容 遇到的问题</title>
+      <link href="2021/06/12/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%20%E8%8E%B7%E5%8F%96%E4%BC%9A%E8%AF%9D%E5%86%85%E5%AE%B9%20%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>2021/06/12/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%20%E8%8E%B7%E5%8F%96%E4%BC%9A%E8%AF%9D%E5%86%85%E5%AE%B9%20%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h3 id="企业微信-获取会话内容-遇到的问题"><a href="#企业微信-获取会话内容-遇到的问题" class="headerlink" title="企业微信 获取会话内容 遇到的问题"></a>企业微信 获取会话内容 遇到的问题</h3><p>夏已至，则秋不远矣    – 南方</p><hr><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote><p>因为最近在对接企业微信的api相关，遇到了一些坑，就此记录下来，以免忘记</p></blockquote><h4 id="1-no-WeWorkFinanceSdk-in-java-library-path-问题"><a href="#1-no-WeWorkFinanceSdk-in-java-library-path-问题" class="headerlink" title="1. no WeWorkFinanceSdk in java.library.path 问题"></a>1. no WeWorkFinanceSdk in java.library.path 问题</h4><blockquote><p>这个问题就是在 java.library.path 中找不到WeWorkFinanceSdk，我们在使用 <code>System.out.println(System.getProperty(&quot;java.library.path&quot;));</code>输出<code>java.library.path</code>相关，一般就能输出一大堆 library.path 路径，我们只需要在<code>C:\Windows\system32</code> 文件夹里放入我们要使用的dll文件即可。<br><code>注意</code>：</p><ul><li><p>仅测试了Windows环境下的运行，Linux环境下暂时还未测试</p></li><li><p>System.loadLibrary(“WeWorkFinanceSdk”);不要加后缀dll，如下代码，代码在<code>Finance</code>文件最下面，腾讯提供的sdk中就写在最下面的。</p></li></ul></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(isWindows())&#123;</span><br><span class="line">            System.out.println(System.getProperty(<span class="string">&quot;java.library.path&quot;</span>));</span><br><span class="line">            System.loadLibrary(<span class="string">&quot;WeWorkFinanceSdk&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.loadLibrary(<span class="string">&quot;WeWorkFinanceSdk_Java&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isWindows</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String osName = System.getProperties().getProperty(<span class="string">&quot;os.name&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;current system is &quot;</span> + osName);</span><br><span class="line">        <span class="keyword">return</span> osName.toUpperCase().indexOf(<span class="string">&quot;WINDOWS&quot;</span>) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h4 id="2、com-tencent-wework-NewFinance-NewSdk-J-问题"><a href="#2、com-tencent-wework-NewFinance-NewSdk-J-问题" class="headerlink" title="2、com.tencent.wework.NewFinance.NewSdk()J 问题"></a>2、com.tencent.wework.NewFinance.NewSdk()J 问题</h4><blockquote><p>这个问题的出现究其原因就是包名的问题，包名一定要是 <code>com.tencent.wework</code>，然后就是文件名的问题，文件名必须是<code>Finance</code>，不能改名字，不然就报错，这个确实有点坑…</p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/wznanfang/image@main/blog/202109/20/131737-809637.png" alt="image-20210920131736371"></p><h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><blockquote><p>暂时遇到了这两个问题，如果还会遇到就继续添加…</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 企业微信 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 企业微信 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java基础教程(二)对象与类</title>
       <link href="2021/04/10/java%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B(%E4%BA%8C)%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/"/>
       <url>2021/04/10/java%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B(%E4%BA%8C)%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/</url>
